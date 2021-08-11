@@ -1,5 +1,11 @@
 createGrid();
 
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => item.style.backgroundColor = 'white');
+});
+
 function createGrid() {
     const container = document.querySelector('#container');
     console.log(container);
