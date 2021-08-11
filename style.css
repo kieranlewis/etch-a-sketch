@@ -1,0 +1,10 @@
+#container {
+    display: grid;
+    grid-template-columns: repeat(16, 25px);
+}
+
+.grid-item {
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+}
