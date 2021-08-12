@@ -21,6 +21,17 @@ function changeColor(color) {
 const eraserButton = document.querySelector('#btn-erase');
 eraserButton.addEventListener('click', () => currentColor = 'white');
 
+const colorSelect = document.querySelector('#color-select');
+colorSelect.addEventListener('change', () => currentColor = colorSelect.value);
+
+const sizeSlider = document.querySelector('#size-slider');
+const sizeSliderLabel = document.querySelector('#lbl-size');
+sizeSlider.addEventListener('change', () => {
+    createGrid(sizeSlider.value)
+    sizeSliderLabel.textContent = sizeSlider.value + "x" + sizeSlider.value;
+});
+sizeSlider.addEventListener('mousemove', () => sizeSliderLabel.textContent = sizeSlider.value + "x" + sizeSlider.value);
+
 function createGrid(size) {
     const container = document.querySelector('#container');
     container.style.setProperty('--grid-cols', size);
