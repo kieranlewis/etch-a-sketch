@@ -1,9 +1,10 @@
 createGrid(16);
+let currentColor = 'black';
 
-const button = document.querySelector('button');
-button.addEventListener('click', function() {
+const clearButton = document.querySelector('#btn-clear');
+clearButton.addEventListener('click', function() {
     const gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => item.style.backgroundColor = 'white');
+    gridItems.forEach(item => item.style.setProperty('--base', 'white'));
 
     const size = prompt('Enter size of grid');
     if (size >= 100) {
@@ -12,6 +13,13 @@ button.addEventListener('click', function() {
         createGrid(size);
     }
 });
+
+function changeColor(color) {
+    currentColor = color;
+}
+
+const eraserButton = document.querySelector('#btn-erase');
+eraserButton.addEventListener('click', () => currentColor = 'white');
 
 function createGrid(size) {
     const container = document.querySelector('#container');
@@ -27,8 +35,7 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.setAttribute('class', 'grid-item');
-            //div.setAttribute('data-grid', `[${i},${j}]`)
-            div.addEventListener('mouseover', (e) => e.target.style.setProperty('--base', 'black'));
+            div.addEventListener('mouseover', (e) => e.target.style.setProperty('--base', currentColor));
             container.appendChild(div);
         }
         
