@@ -7,17 +7,14 @@ clearButton.addEventListener('click', function() {
     gridItems.forEach(item => item.style.setProperty('--base', 'white'));
 });
 
-function changeColor(color) {
-    currentColor = color;
-}
-
 const eraserButton = document.querySelector('#btn-erase');
 eraserButton.addEventListener('click', () => currentColor = 'white');
 
 const rainbowButton = document.querySelector('#btn-rainbow');
-rainbowButton.addEventListener('click', () => 
-            currentColor = "#" + Math.floor(Math.random()*16777215).toString(16)
-);
+rainbowButton.addEventListener('click', () => {
+    currentColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    rainbowButton.classList.toggle('active');
+});
 
 const colorSelect = document.querySelector('#color-select');
 colorSelect.addEventListener('change', () => currentColor = colorSelect.value);
@@ -44,7 +41,12 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.setAttribute('class', 'grid-item');
-            div.addEventListener('mouseover', (e) => e.target.style.setProperty('--base', currentColor));
+            div.addEventListener('mouseover', (e) => {
+                if(rainbowButton.classList.contains('active')) {
+                    currentColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+                }
+                e.target.style.setProperty('--base', currentColor);
+            });
             container.appendChild(div);
         }
         
