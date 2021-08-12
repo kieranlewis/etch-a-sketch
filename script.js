@@ -5,13 +5,6 @@ const clearButton = document.querySelector('#btn-clear');
 clearButton.addEventListener('click', function() {
     const gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => item.style.setProperty('--base', 'white'));
-
-    const size = prompt('Enter size of grid');
-    if (size >= 100) {
-        alert('Too big!');
-    } else {
-        createGrid(size);
-    }
 });
 
 function changeColor(color) {
@@ -20,6 +13,11 @@ function changeColor(color) {
 
 const eraserButton = document.querySelector('#btn-erase');
 eraserButton.addEventListener('click', () => currentColor = 'white');
+
+const rainbowButton = document.querySelector('#btn-rainbow');
+rainbowButton.addEventListener('click', () => 
+            currentColor = "#" + Math.floor(Math.random()*16777215).toString(16)
+);
 
 const colorSelect = document.querySelector('#color-select');
 colorSelect.addEventListener('change', () => currentColor = colorSelect.value);
