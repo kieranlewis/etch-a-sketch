@@ -8,7 +8,10 @@ clearButton.addEventListener('click', function() {
 });
 
 const eraserButton = document.querySelector('#btn-erase');
-eraserButton.addEventListener('click', () => currentColor = 'white');
+eraserButton.addEventListener('click', () => {
+    currentColor = 'white';
+    eraserButton.classList.toggle('active');
+});
 
 const rainbowButton = document.querySelector('#btn-rainbow');
 rainbowButton.addEventListener('click', () => {
@@ -44,6 +47,8 @@ function createGrid(size) {
             div.addEventListener('mouseover', (e) => {
                 if(rainbowButton.classList.contains('active')) {
                     currentColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+                } else if (eraserButton.classList.contains('active')) {
+                    currentColor = "white";
                 }
                 e.target.style.setProperty('--base', currentColor);
             });
