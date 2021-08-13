@@ -28,6 +28,12 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+.active {
+    border: 1px solid #c71414;
 }
 
 .slider {
@@ -38,7 +44,6 @@ button {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin-top: 2rem;
 }
 
 .slider::-webkit-slider-thumb {
@@ -63,19 +68,33 @@ button {
 
 #color-select {
     grid-area: colorSelect;
+    justify-self: center;
+    background-color: #00203FFF;
+    border: none;
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    margin-top: -5px;
+    margin-left: 70px;
 }
 
 #lbl-size {
-    grid-area: sizeLabel
+    grid-area: sizeLabel;
+    font-size: 20px;
+    margin-top: 0.75rem;
 }
 
 #size-slider {
-    grid-area: slider
+    grid-area: slider;
 }
 
 #lbl-color {
     grid-area: colorLabel;
+    font-size: 20px;
+    justify-self: end;
+    margin-right: -130px;
 }
+  
 
 .controls {
     display: grid;
@@ -83,7 +102,7 @@ button {
     width: 80%;
     grid-template-areas: 
         "clear erase rainbow"
-        "colorLabel colorSelect colorSelect"
+        "colorLabel colorSelect ."
         ". sizeLabel ."
         "slider slider slider";
     justify-items: center;
