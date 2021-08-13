@@ -33,7 +33,11 @@ button {
 }
 
 .active {
-    border: 1px solid #c71414;
+    background-color: black;
+}
+
+button:hover {
+    opacity: 80%;
 }
 
 .slider {

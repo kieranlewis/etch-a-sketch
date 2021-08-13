@@ -11,12 +11,18 @@ const eraserButton = document.querySelector('#btn-erase');
 eraserButton.addEventListener('click', () => {
     currentColor = 'white';
     eraserButton.classList.toggle('active');
+    if(rainbowButton.classList.contains('active')) {
+        rainbowButton.classList.toggle('active');
+    }
 });
 
 const rainbowButton = document.querySelector('#btn-rainbow');
 rainbowButton.addEventListener('click', () => {
     currentColor = "#" + Math.floor(Math.random()*16777215).toString(16);
     rainbowButton.classList.toggle('active');
+    if(eraserButton.classList.contains('active')) {
+        eraserButton.classList.toggle('active');
+    }
 });
 
 const colorSelect = document.querySelector('#color-select');
@@ -49,6 +55,8 @@ function createGrid(size) {
                     currentColor = "#" + Math.floor(Math.random()*16777215).toString(16);
                 } else if (eraserButton.classList.contains('active')) {
                     currentColor = "white";
+                } else {
+                    currentColor = colorSelect.value;
                 }
                 e.target.style.setProperty('--base', currentColor);
             });
