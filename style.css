@@ -3,6 +3,21 @@
     --base: rgb(255, 255, 255); 
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+button { 
+    font-family: 'Roboto Mono', monospace;
+}
+
+.controls {
+    margin-bottom: 1rem;
+}
+
 #container {
     display: grid;
     width: 500px;
