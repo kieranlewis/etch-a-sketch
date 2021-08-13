@@ -6,7 +6,7 @@
     <title>Etch A Sketch</title>
 
     <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoMono">
     <script src="script.js" defer></script>
 </head>
 
@@ -16,10 +16,10 @@
         <button id="btn-clear">Clear Screen</button>
         <button id="btn-erase">Eraser</button>
         <button id="btn-rainbow">Rainbow</button>
-        <label for="color-select">Color</label>
-        <input type="color" id="color-select" name="color">
+        <label for="color-select" id="lbl-color">Color</label>
+        <input type="color" id="color-select">
         <label for="size-slider" id="lbl-size">16x16</label>
-        <input type="range" id="size-slider" name="size" value = "16" min = "1" max = "100"> 
+        <input type="range" id="size-slider" class="slider" value="16" min="1" max="100"> 
     </div>
     <div id="container">
 
